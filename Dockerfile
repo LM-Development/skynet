@@ -1,5 +1,5 @@
 ARG BASE_IMAGE_BUILD=nvidia/cuda:13.2.0-cudnn-devel-ubuntu22.04
-ARG BASE_IMAGE_RUN=nvidia/cuda:13.2.0-cudnn-devel-ubuntu22.04
+ARG BASE_IMAGE_RUN=nvidia/cuda:13.2.0-cudnn-runtime-ubuntu22.04
 ## Base Image
 
 FROM ${BASE_IMAGE_BUILD} AS builder
@@ -86,7 +86,7 @@ COPY --chown=jitsi:jitsi --from=builder /app/.venv /app/.venv
 
 RUN \
     apt-get update && \
-    apt-get install -y apt-transport-https ca-certificates
+    apt-get install -y --no-install-recommends apt-transport-https ca-certificates libcudnn8
 
 COPY docker/rootfs/ /
 
