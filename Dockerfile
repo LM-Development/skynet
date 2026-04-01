@@ -1,6 +1,5 @@
-ARG BASE_IMAGE_BUILD=nvidia/cuda:12.2.2-cudnn8-devel-ubuntu22.04
-ARG BASE_IMAGE_RUN=nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu22.04
-
+ARG BASE_IMAGE_BUILD=nvidia/cuda:13.2.0-cudnn-devel-ubuntu24.04
+ARG BASE_IMAGE_RUN=nvidia/cuda:13.2.0-cudnn-devel-ubuntu24.04
 ## Base Image
 
 FROM ${BASE_IMAGE_BUILD} AS builder
